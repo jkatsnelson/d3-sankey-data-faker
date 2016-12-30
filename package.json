@@ -1,0 +1,33 @@
+{
+  "name": "d3-sankey-data-faker",
+  "version": "1.0.0",
+  "description": "A data faker for Sankey d3 visualizations. The format it produces is based on the classic Sankey diagram example by Mike Bostock on energy data: https://bost.ocks.org/mike/sankey/",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape 'test.js' && eslint index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkatsnelson/d3-sankey-data-faker.git"
+  },
+  "keywords": [
+    "d3",
+    "sankey",
+    "data",
+    "faker",
+    "mock",
+    "data",
+    "random",
+    "walk"
+  ],
+  "author": "John Katsnelson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkatsnelson/d3-sankey-data-faker/issues"
+  },
+  "homepage": "https://github.com/jkatsnelson/d3-sankey-data-faker#readme",
+  "devDependencies": {
+    "eslint": "3.12.2",
+    "tape": "4.6.3"
+  }
+}
