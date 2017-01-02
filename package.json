@@ -28,6 +28,13 @@
   "homepage": "https://github.com/jkatsnelson/d3-sankey-data-faker#readme",
   "devDependencies": {
     "eslint": "3.12.2",
+    "eslint-config-google": "0.7.1",
+    "eslint-config-standard": "6.2.1",
+    "eslint-plugin-promise": "3.4.0",
+    "eslint-plugin-standard": "2.0.1",
     "tape": "4.6.3"
+  },
+  "dependencies": {
+    "lodash": "4.17.3"
   }
 }
