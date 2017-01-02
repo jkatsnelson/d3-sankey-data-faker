@@ -1,12 +1,27 @@
 'use strict';
 
 const _ = require('lodash');
-
 module.exports = {
   d3SankeyDataFaker: d3SankeyDataFaker,
   buildLinks: buildLinks,
-  getFlatIndex: getFlatIndex
+  getFlatIndex: getFlatIndex,
+  allFlatIndexesAboveLevel: allFlatIndexesAboveLevel
 };
+
+// find all flat indexes above the current level
+function allFlatIndexesAboveLevel(namesByLevel, currentLevel) {
+  let count = 0;
+  let list = [];
+  _.each(namesByLevel, function (l, i) {
+    if (i > currentLevel) {
+      _.each(l, function (item, i) {
+        list.push(count + i);
+      });
+    }
+    count += l.length;
+  });
+  return list;
+}
 
 function d3SankeyDataFaker (namesByLevel) {
   if (!_.isArray(namesByLevel) || !_.isArray(namesByLevel[0])) {

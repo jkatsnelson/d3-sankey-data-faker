@@ -5,6 +5,7 @@ const _ = require('lodash');
 const d3SankeyDataFaker = require('./index').d3SankeyDataFaker;
 const getFlatIndex = require('./index').getFlatIndex;
 const buildLinks = require('./index').buildLinks;
+const allFlatIndexesAboveLevel = require('./index').allFlatIndexesAboveLevel;
 
 const dataSeed = _.reduce([1,2,3,4], function (seed) {
   const level = _.map(_.range(_.random(1, 10)), function (item) {
@@ -35,6 +36,7 @@ tape("it returns a random list of links", function (test) {
   const randomLinks = d3SankeyDataFaker(dataSeed);
   test.plan(randomLinks.length);
   _.each(randomLinks, function (item) {
+    console.log('item:', item);
     test.deepEqual(_.keys(item), ['source', 'target', 'value']);
   });
 })
@@ -119,4 +121,19 @@ tape("buildLinks returns arguments as a link object", function (test) {
     target: 1,
     value: 100
   });
+});
+
+console.log('Test allFlatIndexesAboveLevel')
+
+tape("returns a list of all the flat indexes above the level specified", function (test) {
+  test.plan(3);
+  const test2dArray = [
+    ['a', 'b', 'c'],
+    ['d', 'e'],
+    ['f', 'g', 'h']
+  ];
+  console.log('result:', allFlatIndexesAboveLevel(test2dArray, 2))
+  test.deepEqual(allFlatIndexesAboveLevel(test2dArray, 1), [5,6,7]);
+  test.deepEqual(allFlatIndexesAboveLevel(test2dArray, 0), [3,4,5,6,7]);
+  test.deepEqual(allFlatIndexesAboveLevel(test2dArray, 2), []);
 });
